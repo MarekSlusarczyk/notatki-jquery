@@ -1,0 +1,111 @@
+Lekcja
+Temat: Obsługa zdarzeń w jQuery
+
+1. Metoda on()
+$('button').on('click', function() {
+	// kod
+});
+
+$('button').click(function() {
+	// kod
+});
+
+2. W jednej metodzie można wskazać kilka zdarzeń
+$('div').on('click mouseup', function() {
+	// kod
+});
+
+
+3. Wyłączanie zdarzenia
+$('button').off('click') - po wywołaniu zdarzenie nie będzie działało
+
+
+Lekcja
+Temat: Efekty jQuery
+
+.show(czas) - sprawia że element będzie widoczny
+.hide(czas) - służy do ukrywania elementów
+.toogle(czas) - zmienia stan elementu, naprzemiennie go ukrywając lub wyświetlając,
+jeśli element jest widoczny, wywołanie funkcji toogle() spowoduje jego ukrycie i na odwrót.
+.fadeIn(czas)
+.fadeOut(czas)
+.fadeTo(czas, stopień przezroczystości) - powoduje stopniową zmianę przezroczystości elementu a z do osiągnięcia określonej wartości
+np. $('p').fadeTo(400, .75);
+.fadeToogle(czas) - pojawia się lub znika
+.slideDown(czas) - sprawia, że niewidoczne elementy są wysuwane na stronę
+.slideUp() - usuwa element strony, ukrywając całą pozostałą zawartość strony ku górze, aż element całkowicie zniknie
+.slideToggle() - użycie tej funkcji powoduje wywołanie slideDown() jeśli element jest ukryty oraz wywoływanie funkcji slideUp() jeśli aktualnie widoczny.
+
+Wysokość elementów
+$('element').height();
+$('element').width();
+
+Wraz z paddingiem: 
+$('element').innerHeight();
+$('element').innerWidth(); 
+
+Wraz z paddingiem i borderem
+$('element').outerHeight();
+$('element').outerWidth(); 
+
+Wraz z paddingiem, borderem i marginesem
+$('element').outerHeight(true);
+$('element').outerWidth(true); 
+
+Szerokość i wysokość dokumentu
+$(document).height();
+$(document).width();
+
+Szerokość i wysokość okna przeglądarki bez pasków przewijania
+$(window).height();
+$(window).width();
+
+Odległość elementu od krawędzi dokumentu
+$('element').offset().top
+
+Aktualna pozycja scrolla
+$(document).scrollTop();
+
+
+Lekcja
+Temat: Animacje w jQuery
+
+Korzystając z funkcji animate() można animować dowolną właściwość css akceptującą wartości liczbowe. Przykładowo można animować
+wielkość tekstu, położenie elementu na stronie, jego przeźroczystość czy też szerokość obramowania itp.
+
+$('element').animate(
+{
+	left: '650px',
+	opacity: 0.5,
+	fontSize: '24px'
+},
+	1500
+);
+
+jQuery udostępnia dwie metody określania tempa animacji: linear (liniowa) oraz swing (zmienna). Pierwsza zapewnia stałe tempo
+animacji, druga metoda rozpoczyna animację szybciej, a następnie zwalnia. Metoda swing jest stosowana domyślnie.
+
+
+$('element').animate(
+{
+	left: '650px',
+	opacity: 0.5,
+	fontSize: '24px'
+},
+	1500,
+	'linear'
+);
+
+easing - umożliwia więcej animacji
+
+$('element').animate(
+{
+	left: '650px',
+	opacity: 0.5,
+	fontSize: '24px'
+},
+	1500,
+	function() {
+		// kod
+	}
+);
